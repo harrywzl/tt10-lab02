@@ -3,7 +3,6 @@ from cocotb.triggers import Timer
 
 @cocotb.test()
 async def test_adder(dut):
-    """Test the 8-bit adder."""
     for a in range(256):
         for b in range(256):
             dut.ui_in.value = a
