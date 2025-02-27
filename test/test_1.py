@@ -7,10 +7,13 @@ from cocotb.triggers import Timer
 
 
 @cocotb.test()
-async def test_adder(dut):
-    """Test the 8-bit adder using multiple cases."""
-    
+async def test_adder(dut):    
     dut._log.info("Starting 8-bit Adder Tests")
+
+    dut.rst_n.value = 0
+    await Timer(5, units="ns")
+    dut.rst_n.value = 1
+    await Timer(5, units="ns")
 
     # Test Case 1: 5 + 10 = 15
     dut.ui_in.value = 5
