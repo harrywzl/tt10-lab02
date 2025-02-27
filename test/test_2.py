@@ -28,7 +28,7 @@ async def test_project(dut):
     dut.ui_in.value = 0x2A  # 0010 1010
     dut.uio_in.value = 0xF1  # 1111 0001
     await ClockCycles(dut.clk, 1)
-    assert dut.uo_out.value == 0x0B, f"Test case a failed: got {dut.uo_out.value}" 
+    assert dut.uo_out.value == 0x0D, f"Test case a failed: got {dut.uo_out.value}" 
 
     # Test case b: In[15:0] = 0000 0000 0000 0001, expected C[7:0] = 0000 0000 (0)
     dut.ui_in.value = 0x00
